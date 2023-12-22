@@ -123,7 +123,7 @@ class ContactIndex extends React.Component {
   handleAddRandomContact = (newContact) => {
     const newFinalContact = {
       ...newContact,
-      id: this.state.contactList[this.state.contactList.length - 1].id + 1,
+      id: this.state.contactList.length > 0 ? this.state.contactList[this.state.contactList.length - 1].id + 1 : 1,
       isFavorite: false,
     };
     this.setState((prevState) => {
@@ -183,7 +183,7 @@ class ContactIndex extends React.Component {
                   handleAddContact={this.handleAddContact}
                   isUpdating={this.state.isUpdating}
                   selectedContact={this.state.selectedContact}
-                  cancelUpdateContact = {this.handleCancelUpdateContact}
+                  cancelUpdateContact = {this.handleCancelUpdateClick}
                   handleUpdateContact={this.handleUpdateContact}
                 />
               </div>
